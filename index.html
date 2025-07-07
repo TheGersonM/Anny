@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Para Anny 💌</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- 🎵 Música de fondo -->
+    <audio id="bg-music" autoplay loop>
+        <source src="assets/audio/sayyestoheaven.mp3" type="audio/mp3" />
+        Tu navegador no soporta audio HTML5.
+    </audio>
+
+    <div class="side-image left">
+        <img id="left-img" src="assets/img/juntos.png" class="zoom-out" alt="Lateral izquierdo" />
+    </div>
+
+    <div class="side-image right">
+        <img id="right-img" src="assets/img/juntos.png" class="zoom-out" alt="Lateral derecho" />
+    </div>
+
+    <div class="container" id="letter-container">
+        <!-- Primer párrafo ya visible -->
+        <section class="section visible">
+            <div class="text-card">
+                <p>Hola mi niña preciosa, esta página es solo para ti 💌</p>
+                <p>Espero que cada palabra te llegue al corazón y te haga sentir amada .</p>
+                <p>Te amo con todo mi ser, y quiero que sepas cuánto significas para mí.</p>
+            </div>
+            <div class="image-wrapper">
+                <!-- 📷 Colocá aquí tu imagen correspondiente -->
+                <img src="assets/img/felizmes.jpg" alt="Imagen 1" />
+            </div>
+            <button class="next-btn">Siguiente 💖</button>
+        </section>
+        <!-- Las siguientes secciones se insertarán dinámicamente -->
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
+<script>
+
+    const pastelColors = [
+        "#fce4ec", // rosa muy claro
+        "#f3e5f5", // lila suave
+        "#e3f2fd", // celeste claro
+        "#e8f5e9", // verde muy suave
+        "#fff3e0", // durazno claro
+        "#f0f4c3", // lima pastel
+        "#f9fbe7", // amarillo pálido
+        "#ede7f6", // lavanda claro
+        "#fce4ec", // repetido para bucle suave
+    ];
+    // Textos de cada sección
+    const paragraphs = [
+        // Ya usaste "juntos" y "1.jpg", así que seguimos desde aquí:
+        {
+            text: "Hola mi niña preciosa, esta página es solo para ti 💌. Espero que cada palabra te llegue al corazón y te haga sentir amada.",
+            image: "assets/img/juntos.png"
+        },
+        {
+            text: "¿Te acordás de cuando hablábamos por videollamada durante horas? Nunca me cansaba de verte sonreír... esta imagen me recuerda a esos momentos que me hacían sentir tan afortunado.",
+            image: "assets/img/llamada.jpg"
+        },
+        {
+            text: "Compartir comida contigo, aunque sea a distancia, era especial. Mirábamos nuestros platos en cámara, bromeábamos… hasta hacías que tu comida se viera más rica que la mía 😅.",
+            image: "assets/img/comida.jpg"
+        },
+        {
+            text: "Vernos una serie juntos, pausando al mismo tiempo, riéndonos de lo mismo… ¡fue como estar a tu lado!",
+            image: "assets/img/serie.jpg"
+        },
+        {
+            text: "Tu carita hermosa, tan dulce, tan tú. Esta es una de mis favoritas. Me encanta cómo me mirás ahí 🥺.",
+            image: "assets/img/cara1.jpg"
+        },
+        {
+            text: "Y esta otra... simplemente me derrite. Es tu ternura pura. Sos mi niña preciosa.",
+            image: "assets/img/cara2.jpg"
+        },
+        {
+            text: "Tenés tantas caras y cada una me enamora más. Cada expresión tuya me dice algo nuevo.",
+            image: "assets/img/cara3.jpg"
+        },
+        {
+            text: "Y bueno, esta otra es más seria… pero igual sos hermosa, incluso cuando no estás sonriendo ❤️.",
+            image: "assets/img/cara4.jpg"
+        },
+        {
+            text: "No podía faltar esta donde hacés tu cara de ‘no sé’, tan única. Siempre me hacés reír jajaja.",
+            image: "assets/img/cara5.jpg"
+        },
+        {
+            text: "O esta, donde te ves toda chistosa, pero igual de preciosa 😍.",
+            image: "assets/img/carachistosa.jpg"
+        },
+        {
+            text: "¿Te acordás de aquel atardecer que me mostraste? Fue como si estuviéramos los dos ahí viéndolo juntos.",
+            image: "assets/img/atardecer.jpg"
+        },
+        {
+            text: "Ese beso que un día me diste a través de la pantalla… lo sigo guardando aquí 💋.",
+            image: "assets/img/beso.jpg"
+        },
+        {
+            text: "Estas capturas, aunque simples, son como piezas de momentos que no quiero olvidar.",
+            image: "assets/img/captura1.jpg"
+        },
+        {
+            text: "Cada captura tuya es una joyita que atesoro.",
+            image: "assets/img/captura2.jpg"
+        },
+        {
+            text: "Hasta las más random me hacen sonreír. ¿Ves por qué no puedo dejar de pensarte?",
+            image: "assets/img/captura3.jpg"
+        },
+        {
+            text: "Cuando te ponés en modo cariñoso, ¡ay mi amor! Me hacés sentir como el hombre más amado del mundo.",
+            image: "assets/img/carinoso.jpg"
+        },
+        {
+            text: "¡Y otra comida! Pero esta sí que se veía rica jaja. Amo hasta eso contigo.",
+            image: "assets/img/comida2.jpg"
+        },
+        {
+            text: "Estas con emojis son tan vos. Dulce, alegre, intensa, mi niña especial ❤️.",
+            image: "assets/img/emojis.jpg"
+        },
+        {
+            text: "Esta foto juntos es todo para mí. No importa la distancia, en mi corazón estás siempre cerca.",
+            image: "assets/img/juntos.png"
+        },
+        {
+            text: "Sos como una luz que me guía en los días difíciles. Gracias por estar, incluso cuando no estás físicamente.",
+            image: "assets/img/luzqueguia.jpg"
+        },
+        {
+            text: "¿Te acordás de la broma de McQueen? Ka-chowww 🚗💨 Siempre me hacés reír, amor.",
+            image: "assets/img/McQueen.jpg"
+        },
+        {
+            text: "Esta de Santa Bárbara me encanta. Me dan ganas de que algún día volvamos a estar en un lugar así, pero juntos.",
+            image: "assets/img/Santabarbara.jpg"
+        },
+        {
+            text: "Y esta otra... uff, fue un día tan lindo. Estabas tan linda. Lo estás siempre.",
+            image: "assets/img/SantaBarbara2.jpg"
+        },
+        {
+            text: "Esta imagen con varias tuyas me hace sentir que te tengo cerquita, como si me rodearas de amor en todas tus formas.",
+            image: "assets/img/varias.jpg"
+        },
+        {
+            text: "Y este video... no tiene sonido, pero no le hace falta. Tu sonrisa lo dice todo 🥹.",
+            image: "video"
+        }
+
+    ];
+
+    // Textos personalizados para los botones
+    const botones = [
+        "Dime más 😍",
+        "Sigue contándome 💬",
+        "Awww ❤️",
+        "Quiero saber más 🌙",
+        "No pares ✨",
+        "Esto es hermoso 💞"
+    ];
+
+    const imagenesLaterales = [
+        "assets/img/titulo.jpg",
+        "assets/img/llamada.jpg",
+        "assets/img/comida.jpg",
+        "assets/img/serie.jpg",
+        "assets/img/cara1.jpg",
+        "assets/img/cara2.jpg",
+        "assets/img/cara3.jpg",
+        "assets/img/cara4.jpg",
+        "assets/img/cara5.jpg",
+        "assets/img/carachistosa.jpg",
+        "assets/img/atardecer.jpg",
+        "assets/img/beso.jpg",
+        "assets/img/captura1.jpg",
+        "assets/img/captura2.jpg",
+        "assets/img/captura3.jpg",
+        "assets/img/carinoso.jpg",
+        "assets/img/comida2.jpg",
+        "assets/img/emojis.jpg",
+        "assets/img/juntos.png",
+        "assets/img/luzqueguia.jpg",
+        "assets/img/McQueen.jpg",
+        "assets/img/Santabarbara.jpg",
+        "assets/img/SantaBarbara2.jpg",
+        "assets/img/varias.jpg"
+    ];
+
+
+
+    let currentIndex = 0;
+
+    // Mostrar siguiente sección
+    function showNextParagraph() {
+        if (currentIndex < paragraphs.length) {
+            const section = document.createElement('section');
+            section.className = 'section';
+
+            const textCard = document.createElement('div');
+            textCard.className = 'text-card';
+            textCard.innerHTML = `<p>${paragraphs[currentIndex].text}</p>`;
+
+            const imageWrapper = document.createElement('div');
+            imageWrapper.className = 'image-wrapper';
+
+            // Si el contenido es un video
+            if (paragraphs[currentIndex].image === "video") {
+                const video = document.createElement('video');
+                video.src = "video/bella.mp4";
+                video.autoplay = true;
+                video.loop = true;
+                video.muted = true;
+                video.controls = false;
+                video.style.maxWidth = "100%";
+                video.style.borderRadius = "20px";
+                imageWrapper.appendChild(video);
+            } else {
+                // Si es una imagen
+                const img = document.createElement('img');
+                img.src = paragraphs[currentIndex].image;
+                img.alt = `Imagen ${currentIndex + 1}`;
+                imageWrapper.appendChild(img);
+            }
+
+            section.appendChild(textCard);
+            section.appendChild(imageWrapper);
+
+            // Solo agregar botón si no es el último párrafo
+            if (currentIndex < paragraphs.length - 1) {
+                const nextBtn = document.createElement('button');
+                nextBtn.className = 'next-btn';
+                nextBtn.textContent = botones[currentIndex] || "Siguiente 💖";
+
+                nextBtn.addEventListener('click', () => {
+                    nextBtn.remove(); // Elimina el botón anterior
+                    section.classList.add('visible');
+                    currentIndex++;
+
+                    // Cambiar imágenes laterales
+                    const leftImg = document.getElementById("left-img");
+                    const rightImg = document.getElementById("right-img");
+
+                    leftImg.src = imagenesLaterales[currentIndex] || imagenesLaterales[0];
+                    rightImg.src = imagenesLaterales[currentIndex] || imagenesLaterales[0];
+
+                    // Quitar efecto de alejamiento
+                    leftImg.classList.remove("zoom-out");
+                    rightImg.classList.remove("zoom-out");
+
+                    // Mostrar nueva sección
+                    showNextParagraph();
+                });
+
+                section.appendChild(nextBtn);
+            }
+
+            document.getElementById("letter-container").appendChild(section);
+            setTimeout(() => section.classList.add("visible"), 100);
+
+            // Forzar scroll al nuevo contenido
+            setTimeout(() => {
+                section.scrollIntoView({ behavior: "smooth", block: "start" });
+            }, 300);
+        }
+    }
+
+
+    // Activar visibilidad por scroll (efecto fade-in)
+    window.addEventListener("scroll", () => {
+        const totalHeight = document.body.scrollHeight - window.innerHeight;
+        const scrollPos = window.scrollY;
+        const scrollPercent = scrollPos / totalHeight;
+
+        const index = Math.floor(scrollPercent * (pastelColors.length - 1));
+        const nextIndex = index + 1 < pastelColors.length ? index + 1 : index;
+
+        const ratio = (scrollPercent * (pastelColors.length - 1)) % 1;
+
+        const blendColor = blendColors(pastelColors[index], pastelColors[nextIndex], ratio);
+        document.body.style.backgroundColor = blendColor;
+    });
+
+
+    // Inicia al cargar la página (agrega la segunda sección)
+    document.addEventListener("DOMContentLoaded", () => {
+        // Detectar y preparar el primer botón
+        const firstBtn = document.querySelector(".next-btn");
+        firstBtn.addEventListener("click", () => {
+            firstBtn.remove();
+            showNextParagraph();
+        });
+    });
+
+    function blendColors(color1, color2, ratio) {
+        const hex = (c) => parseInt(c, 16);
+
+        const r1 = hex(color1.substr(1, 2));
+        const g1 = hex(color1.substr(3, 2));
+        const b1 = hex(color1.substr(5, 2));
+
+        const r2 = hex(color2.substr(1, 2));
+        const g2 = hex(color2.substr(3, 2));
+        const b2 = hex(color2.substr(5, 2));
+
+        const r = Math.round(r1 * (1 - ratio) + r2 * ratio);
+        const g = Math.round(g1 * (1 - ratio) + g2 * ratio);
+        const b = Math.round(b1 * (1 - ratio) + b2 * ratio);
+
+        return `rgb(${r}, ${g}, ${b})`;
+    }
+
+</script>
