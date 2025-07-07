@@ -48,121 +48,115 @@
 <script>
 
     const pastelColors = [
-        "#fce4ec", // rosa muy claro
-        "#f3e5f5", // lila suave
-        "#e3f2fd", // celeste claro
-        "#e8f5e9", // verde muy suave
-        "#fff3e0", // durazno claro
-        "#f0f4c3", // lima pastel
-        "#f9fbe7", // amarillo pálido
-        "#ede7f6", // lavanda claro
-        "#fce4ec", // repetido para bucle suave
+        'hsl(0, 100%, 90%)',    // Rosa claro
+        'hsl(30, 100%, 90%)',   // Durazno
+        'hsl(60, 100%, 90%)',   // Amarillo claro
+        'hsl(120, 100%, 90%)',  // Verde menta
+        'hsl(180, 100%, 90%)',  // Aqua
+        'hsl(240, 100%, 90%)',  // Azul lavanda
+        'hsl(300, 100%, 90%)'   // Lila
     ];
+
     // Textos de cada sección
     const paragraphs = [
-        // Ya usaste "juntos" y "1.jpg", así que seguimos desde aquí:
         {
-            text: "Hola mi niña preciosa, esta página es solo para ti 💌. Espero que cada palabra te llegue al corazón y te haga sentir amada.",
+            text: "¿Recordás cuando todo comenzó? Éramos solo dos desconocidos hablando de tonteras, y de repente eras todo mi mundo.",
             image: "assets/img/juntos.png"
         },
         {
-            text: "¿Te acordás de cuando hablábamos por videollamada durante horas? Nunca me cansaba de verte sonreír... esta imagen me recuerda a esos momentos que me hacían sentir tan afortunado.",
-            image: "assets/img/llamada.jpg"
-        },
-        {
-            text: "Compartir comida contigo, aunque sea a distancia, era especial. Mirábamos nuestros platos en cámara, bromeábamos… hasta hacías que tu comida se viera más rica que la mía 😅.",
-            image: "assets/img/comida.jpg"
-        },
-        {
-            text: "Vernos una serie juntos, pausando al mismo tiempo, riéndonos de lo mismo… ¡fue como estar a tu lado!",
-            image: "assets/img/serie.jpg"
-        },
-        {
-            text: "Tu carita hermosa, tan dulce, tan tú. Esta es una de mis favoritas. Me encanta cómo me mirás ahí 🥺.",
-            image: "assets/img/cara1.jpg"
-        },
-        {
-            text: "Y esta otra... simplemente me derrite. Es tu ternura pura. Sos mi niña preciosa.",
-            image: "assets/img/cara2.jpg"
-        },
-        {
-            text: "Tenés tantas caras y cada una me enamora más. Cada expresión tuya me dice algo nuevo.",
-            image: "assets/img/cara3.jpg"
-        },
-        {
-            text: "Y bueno, esta otra es más seria… pero igual sos hermosa, incluso cuando no estás sonriendo ❤️.",
-            image: "assets/img/cara4.jpg"
-        },
-        {
-            text: "No podía faltar esta donde hacés tu cara de ‘no sé’, tan única. Siempre me hacés reír jajaja.",
-            image: "assets/img/cara5.jpg"
-        },
-        {
-            text: "O esta, donde te ves toda chistosa, pero igual de preciosa 😍.",
-            image: "assets/img/carachistosa.jpg"
-        },
-        {
-            text: "¿Te acordás de aquel atardecer que me mostraste? Fue como si estuviéramos los dos ahí viéndolo juntos.",
-            image: "assets/img/atardecer.jpg"
-        },
-        {
-            text: "Ese beso que un día me diste a través de la pantalla… lo sigo guardando aquí 💋.",
+            text: "Y desde entonces no he dejado de desear un beso tuyo. No solo uno, quiero todos.",
             image: "assets/img/beso.jpg"
         },
         {
-            text: "Estas capturas, aunque simples, son como piezas de momentos que no quiero olvidar.",
-            image: "assets/img/captura1.jpg"
+            text: "Tenemos una conversación pendiente: sentados en la orilla viendo el amanecer. No se me olvida, y la quiero.",
+            image: "assets/img/atardecer.jpg"
         },
         {
-            text: "Cada captura tuya es una joyita que atesoro.",
-            image: "assets/img/captura2.jpg"
-        },
-        {
-            text: "Hasta las más random me hacen sonreír. ¿Ves por qué no puedo dejar de pensarte?",
-            image: "assets/img/captura3.jpg"
-        },
-        {
-            text: "Cuando te ponés en modo cariñoso, ¡ay mi amor! Me hacés sentir como el hombre más amado del mundo.",
-            image: "assets/img/carinoso.jpg"
-        },
-        {
-            text: "¡Y otra comida! Pero esta sí que se veía rica jaja. Amo hasta eso contigo.",
+            text: "Después podríamos ir por comida, porque si hay algo que amamos, es comer juntos... aunque sea por videollamada.",
             image: "assets/img/comida2.jpg"
         },
         {
-            text: "Estas con emojis son tan vos. Dulce, alegre, intensa, mi niña especial ❤️.",
-            image: "assets/img/emojis.jpg"
+            text: "Siempre soñé con recorrer pueblitos, y Santa Bárbara es tuya... así que me encantaría que me llevaras.",
+            image: "assets/img/SantaBarbara.jpg"
         },
         {
-            text: "Esta foto juntos es todo para mí. No importa la distancia, en mi corazón estás siempre cerca.",
-            image: "assets/img/juntos.png"
+            text: "O simplemente pasar el día viendo series, abrazados, sin prisa. Me encantaría.",
+            image: "assets/img/captura1.jpg"
         },
         {
-            text: "Sos como una luz que me guía en los días difíciles. Gracias por estar, incluso cuando no estás físicamente.",
+            text: "Pero si no hacemos nada de eso, también estaría bien. Solo quiero compartir mi vida con vos.",
+            image: "assets/img/cara1.jpg"
+        },
+        {
+            text: "Esas llamadas tuyas... son lo mejor del día. Siempre me sacan una sonrisa.",
+            image: "assets/img/captura2.jpg"
+        },
+        {
+            text: "Aunque aún no se da esa videollamada famosa que prometimos jaja 🙄",
+            image: "assets/img/cara2.jpg"
+        },
+        {
+            text: "Pero no importa, porque al hablarte tanto, siento como si estuvieras justo aquí a mi lado.",
+            image: "assets/img/llamada.jpg"
+        },
+        {
+            text: "Y esas notas tuyas... siempre me hacen reír. Sos única, Anny.",
+            image: "assets/img/captura3.jpg"
+        },
+        {
+            text: "Has sido mi guía, mi luz, mi compañía. Como una farola en medio de la tormenta.",
             image: "assets/img/luzqueguia.jpg"
         },
         {
-            text: "¿Te acordás de la broma de McQueen? Ka-chowww 🚗💨 Siempre me hacés reír, amor.",
+            text: "Y al final del día, lo que más amo es verte sonreír.",
+            image: "assets/img/cara3.jpg"
+        },
+        {
+            text: "¿Te dije que me encanta tu carita? Siempre lo voy a repetir.",
+            image: "assets/img/cara4.jpg"
+        },
+        {
+            text: "Y tus gestos, tus ojos, tu manera de verme... me tenés enamorado.",
+            image: "assets/img/cara5.jpg"
+        },
+        {
+            text: "Y bueno, para cerrar... *el chiste del día* 😂",
+            image: "assets/img/carachistosa.jpg"
+        },
+        {
+            text: "La meta está clara: contigo, como McQueen: rápido y decidido 💨",
             image: "assets/img/McQueen.jpg"
         },
         {
-            text: "Esta de Santa Bárbara me encanta. Me dan ganas de que algún día volvamos a estar en un lugar así, pero juntos.",
-            image: "assets/img/Santabarbara.jpg"
-        },
-        {
-            text: "Y esta otra... uff, fue un día tan lindo. Estabas tan linda. Lo estás siempre.",
+            text: "Tengo tantas cosas que quiero hacer contigo. Desde Santa Bárbara hasta el fin del mundo.",
             image: "assets/img/SantaBarbara2.jpg"
         },
         {
-            text: "Esta imagen con varias tuyas me hace sentir que te tengo cerquita, como si me rodearas de amor en todas tus formas.",
+            text: "Y obvio, cocinar juntos, aunque yo termine quemando todo 🤣",
+            image: "assets/img/comida.jpg"
+        },
+        {
+            text: "Y aunque no tengamos todo eso aún, amo cada momento contigo. Incluso cuando solo me contás tu día.",
+            image: "assets/img/serie.jpg"
+        },
+        {
+            text: "Nunca voy a dejar de reaccionar como lo hago. Me nacen esas reacciones por lo que me haces sentir ❤️",
+            image: "assets/img/emojis.jpg"
+        },
+        {
+            text: "Sí, soy un romántico... ¿y qué? Total, es por vos 😘",
+            image: "assets/img/carinoso.jpg"
+        },
+        {
+            text: "Para cerrar esto... quiero que sepas que te amo. No por un día, no por un mes, sino por siempre.",
             image: "assets/img/varias.jpg"
         },
         {
-            text: "Y este video... no tiene sonido, pero no le hace falta. Tu sonrisa lo dice todo 🥹.",
-            image: "video"
+            text: "Te amo, Anny. Gracias por ser parte de mi vida. Espero que este mes sea solo el comienzo de muchos más juntos.",
+            image: "assets/img/juntos.png"
         }
-
     ];
+
 
     // Textos personalizados para los botones
     const botones = [
@@ -174,32 +168,35 @@
         "Esto es hermoso 💞"
     ];
 
-    const imagenesLaterales = [
-        "assets/img/titulo.jpg",
-        "assets/img/llamada.jpg",
-        "assets/img/comida.jpg",
-        "assets/img/serie.jpg",
-        "assets/img/cara1.jpg",
-        "assets/img/cara2.jpg",
-        "assets/img/cara3.jpg",
-        "assets/img/cara4.jpg",
-        "assets/img/cara5.jpg",
-        "assets/img/carachistosa.jpg",
-        "assets/img/atardecer.jpg",
-        "assets/img/beso.jpg",
-        "assets/img/captura1.jpg",
-        "assets/img/captura2.jpg",
-        "assets/img/captura3.jpg",
-        "assets/img/carinoso.jpg",
-        "assets/img/comida2.jpg",
-        "assets/img/emojis.jpg",
-        "assets/img/juntos.png",
-        "assets/img/luzqueguia.jpg",
-        "assets/img/McQueen.jpg",
-        "assets/img/Santabarbara.jpg",
-        "assets/img/SantaBarbara2.jpg",
-        "assets/img/varias.jpg"
+    const imagenesLaterales = [        // 1. Feliz mes (introducción)
+        "assets/img/juntos.png",          // 2. Juntos (recuerdos inicio)
+        "assets/img/beso.jpg",            // 3. Beso
+        "assets/img/atardecer.jpg",       // 4. Playa / Amanecer
+        "assets/img/comida2.jpg",         // 5. Comiditas
+        "assets/img/Santabarbara.jpg",    // 6. Santa Bárbara
+        "assets/img/captura1.jpg",        // 7. Series
+        "assets/img/cara1.jpg",           // 8. No importa qué, solo contigo
+
+        // Etapa de recordar momentos
+        "assets/img/captura2.jpg",        // 9. Llamadas lindas
+        "assets/img/cara2.jpg",           // 10. Videollamada broma
+        "assets/img/llamada.jpg",         // 11. Ya es como estar con vos
+        "assets/img/captura3.jpg",        // 12. Notas ingeniosas
+        "assets/img/luzqueguia.jpg",      // 13. Metáfora de lo importante
+        "assets/img/cara3.jpg",           // 14. Sonrisa que amo
+        "assets/img/cara4.jpg",           // 15. Relleno
+        "assets/img/cara5.jpg",           // 16. Relleno
+        "assets/img/carachistosa.jpg",    // 17. Remate gracioso
+        "assets/img/McQueen.jpg",         // 18. Meta clara con vos
+        "assets/img/SantaBarbara2.jpg",   // 19. Cosas por hacer juntos
+        "assets/img/comida.jpg",          // 20. Cocinar juntos
+        "assets/img/serie.jpg",           // 21. Aunque no tengamos nada
+        "assets/img/emojis.jpg",          // 22. Reacciones
+        "assets/img/carinoso.jpg",        // 23. Soy un romántico
+        "assets/img/varias.jpg",
+        "assets/img/teamo.jpg "           // 24. Declaración final
     ];
+
 
 
 
@@ -255,8 +252,16 @@
                     const leftImg = document.getElementById("left-img");
                     const rightImg = document.getElementById("right-img");
 
-                    leftImg.src = imagenesLaterales[currentIndex] || imagenesLaterales[0];
-                    rightImg.src = imagenesLaterales[currentIndex] || imagenesLaterales[0];
+                    leftImg.classList.add("fade-out");
+                    rightImg.classList.add("fade-out");
+
+                    setTimeout(() => {
+                        leftImg.src = imagenesLaterales[currentIndex] || imagenesLaterales[0];
+                        rightImg.src = imagenesLaterales[currentIndex] || imagenesLaterales[0];
+                        leftImg.classList.remove("fade-out");
+                        rightImg.classList.remove("fade-out");
+                    }, 500);
+
 
                     // Quitar efecto de alejamiento
                     leftImg.classList.remove("zoom-out");
@@ -280,20 +285,19 @@
     }
 
 
-    // Activar visibilidad por scroll (efecto fade-in)
-    window.addEventListener("scroll", () => {
-        const totalHeight = document.body.scrollHeight - window.innerHeight;
-        const scrollPos = window.scrollY;
-        const scrollPercent = scrollPos / totalHeight;
+    let lastScrollTop = 0;
+    let colorIndex = 0;
 
-        const index = Math.floor(scrollPercent * (pastelColors.length - 1));
-        const nextIndex = index + 1 < pastelColors.length ? index + 1 : index;
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-        const ratio = (scrollPercent * (pastelColors.length - 1)) % 1;
-
-        const blendColor = blendColors(pastelColors[index], pastelColors[nextIndex], ratio);
-        document.body.style.backgroundColor = blendColor;
+        if (Math.abs(scrollTop - lastScrollTop) > 100) { // Cambia de color cada 100px de desplazamiento
+            colorIndex = (colorIndex + 1) % pastelColors.length;
+            document.body.style.backgroundColor = pastelColors[colorIndex];
+            lastScrollTop = scrollTop;
+        }
     });
+
 
 
     // Inicia al cargar la página (agrega la segunda sección)
