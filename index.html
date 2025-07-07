@@ -15,8 +15,10 @@
         <source src="assets/audio/sayyestoheaven.mp3" type="audio/mp3" />
         Tu navegador no soporta audio HTML5.
     </audio>
+    <!-- Botón oculto para activar música por interacción -->
+    <button id="play-music">Play</button>
 
-    
+
 
     <div class="side-image left">
         <img id="left-img" src="assets/img/juntos.png" class="zoom-out" alt="Lateral izquierdo" />
@@ -309,6 +311,16 @@
         firstBtn.addEventListener("click", () => {
             firstBtn.remove();
             showNextParagraph();
+        });
+        const music = document.getElementById('bg-music');
+
+        // Reproducir música cuando se haga clic en cualquier parte del sitio
+        document.addEventListener('click', () => {
+            if (music.paused) {
+                music.play().catch(err => {
+                    console.warn("La música no pudo reproducirse automáticamente:", err);
+                });
+            }
         });
     });
 
