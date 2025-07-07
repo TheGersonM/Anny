@@ -324,23 +324,41 @@
 
     // Inicia al cargar la página (agrega la segunda sección)
     document.addEventListener("DOMContentLoaded", () => {
-        // Detectar y preparar el primer botón
-        const firstBtn = document.querySelector(".next-btn");
-        firstBtn.addEventListener("click", () => {
-            firstBtn.remove();
-            showNextParagraph();
-        });
-        const music = document.getElementById('bg-music');
+    const firstBtn = document.querySelector(".next-btn");
 
-        // Reproducir música cuando se haga clic en cualquier parte del sitio
-        document.addEventListener('click', () => {
-            if (music.paused) {
-                music.play().catch(err => {
-                    console.warn("La música no pudo reproducirse automáticamente:", err);
-                });
-            }
-        });
+    firstBtn.addEventListener("click", () => {
+        firstBtn.remove();
+        currentIndex = 0;
+
+        // 🔄 Reiniciar clase de animación en imágenes laterales
+        const leftImg = document.getElementById("left-img");
+        const rightImg = document.getElementById("right-img");
+
+        leftImg.classList.remove("zoom-out");
+        rightImg.classList.remove("zoom-out");
+
+        // Forzar reflujo para reiniciar la animación (truco de JavaScript)
+        void leftImg.offsetWidth;
+        void rightImg.offsetWidth;
+
+        leftImg.classList.add("zoom-out");
+        rightImg.classList.add("zoom-out");
+
+        showNextParagraph();
     });
+
+    const music = document.getElementById('bg-music');
+
+    // Reproducir música cuando se haga clic en cualquier parte del sitio
+    document.addEventListener('click', () => {
+        if (music.paused) {
+            music.play().catch(err => {
+                console.warn("La música no pudo reproducirse automáticamente:", err);
+            });
+        }
+    });
+});
+
 
     function blendColors(color1, color2, ratio) {
         const hex = (c) => parseInt(c, 16);
